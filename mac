@@ -143,15 +143,11 @@ brew_tap 'thoughtbot/formulae'
 brew update
 
 fancy_echo "Updating Unix tools ..."
-brew_install_or_upgrade 'ctags'
 brew_install_or_upgrade 'git'
 brew_install_or_upgrade 'openssl'
 brew unlink openssl && brew link openssl --force
-brew_install_or_upgrade 'rcm'
 brew_install_or_upgrade 'reattach-to-user-namespace'
-brew_install_or_upgrade 'the_silver_searcher'
 brew_install_or_upgrade 'tmux'
-brew_install_or_upgrade 'vim'
 brew_install_or_upgrade 'zsh'
 
 fancy_echo "Updating Heroku tools ..."
@@ -160,9 +156,6 @@ brew_install_or_upgrade 'parity'
 
 fancy_echo "Updating GitHub tools ..."
 brew_install_or_upgrade 'hub'
-
-fancy_echo "Updating image tools ..."
-brew_install_or_upgrade 'imagemagick'
 
 fancy_echo "Updating testing tools ..."
 brew_install_or_upgrade 'qt'
@@ -202,6 +195,18 @@ bundle config --global jobs $((number_of_cores - 1))
 
 if [ -f "$HOME/.laptop.local" ]; then
   fancy_echo "Running your customizations from ~/.laptop.local ..."
+  # install brew-cask
+  brew install brew-cask
+
+  fancy_echo "Installing custom apps"
+  brew cask install sublime-text3
+  brew cask install slack
+  brew cask install alfred
+  brew cask install google chrome
+  brew cask install iterm2
+  brew cask install flux
+  brew cask install spotify
+  brew cask install postgres.app
   # shellcheck disable=SC1090
   . "$HOME/.laptop.local"
 fi
