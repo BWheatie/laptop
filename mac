@@ -146,14 +146,12 @@ fancy_echo "Updating Unix tools ..."
 brew_install_or_upgrade 'git'
 brew_install_or_upgrade 'openssl'
 brew unlink openssl && brew link openssl --force
-brew_install_or_upgrade 'rcm'
 brew_install_or_upgrade 'reattach-to-user-namespace'
 brew_install_or_upgrade 'tmux'
 brew_install_or_upgrade 'zsh'
 
 fancy_echo "Updating Heroku tools ..."
 brew_install_or_upgrade 'heroku-toolbelt'
-brew_install_or_upgrade 'parity'
 
 fancy_echo "Updating GitHub tools ..."
 brew_install_or_upgrade 'hub'
